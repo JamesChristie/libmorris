@@ -1,0 +1,8 @@
+# Runtime requirements
+--requirement requirements.txt
+
+# Testing
+mock==1.0.1
+
+# Linting
+pylint=1.4.1
