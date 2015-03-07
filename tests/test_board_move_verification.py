@@ -12,6 +12,11 @@ class TestBoardMoveVerification(unittest.TestCase):
     self.position = (2, 1)
 
   def test_move_request(self):
+    self.assertEqual(
+        self.board.owner_of(self.position),
+        None
+    )
+
     self.board.request_move(self.player, self.position)
 
     self.assertFalse(self.board.is_position_free(self.position))
