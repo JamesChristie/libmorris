@@ -6,8 +6,8 @@ from libmorris.player  import Player
 class TestHistoryAppending(unittest.TestCase):
   def setUp(self):
     self.history        = History()
-    self.player_one     = Player("Some Lady")
-    self.player_two     = Player("Some Other Lady")
+    self.player_one     = Player(name="Some Lady")
+    self.player_two     = Player(name="Some Other Lady")
     self.position_one   = (0, 2)
     self.position_two   = (1, 2)
     self.position_three = (2, 2)

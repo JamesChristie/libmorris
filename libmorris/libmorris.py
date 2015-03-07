@@ -1,27 +1,18 @@
-from libmorris.game   import Game
-from libmorris.player import Player
-from libmorris.errors import GameExistsError
+from libmorris.backend.memory import Memory
 
-game_registry = {}
+from libmorris.game    import Game
+from libmorris.errors  import GameExistsError
 
-def build_player(player_name, move_generator):
-  return Player(player_name, move_generator)
+persistence = Memory()
 
-def register_game(game_name):
-  if game_exists(game_name):
-    raise GameExistsError(game_name)
-  else:
-    game_registry[game_name] = Game()
+def register_game(**kwargs):
+  return persistence.register(**kwargs)
 
-def destroy_game(game_name):
-  try:
-    del game_registry[game_name]
-    return True
-  except KeyError:
-    return False
+def destroy_game(game_id):
+  return persistence.destroy(game_id)
 
-def game_exists(game_name):
-  if game_name in game_registry:
-    return True
-  else:
-    return False
+def game_exists(game_id):
+  return find_game(game_id) != None
+
+def find_game(game_id):
+  return persistence.find(game_id)

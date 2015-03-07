@@ -8,7 +8,7 @@ from libmorris.errors import InvalidMove, MoveOutOfBounds
 class TestBoardMoveVerification(unittest.TestCase):
   def setUp(self):
     self.board    = Board()
-    self.player   = Player("Some Dude")
+    self.player   = Player(name="Some Dude")
     self.position = (2, 1)
 
   def test_move_request(self):

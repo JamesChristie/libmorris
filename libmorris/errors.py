@@ -6,6 +6,11 @@ class GameExistsError(LibmorrisException):
     message = "A game already exists with the name: %s" % game_name
     super(GameExistsError, self).__init__(message)
 
+class MissingAttribute(LibmorrisException):
+  def __init__(self, class_name, attribute):
+    message = "Cannot create %s without a %s" % class_name, attribute
+    super(MissingAttribute, self).__init__(message)
+
 class InvalidMove(LibmorrisException):
   def __init__(self, position):
     message = (

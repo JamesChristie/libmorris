@@ -1,7 +1,13 @@
+from libmorris.errors import MissingAttribute
+
 class Player:
-  def __init__(self, name, move_generator=None):
-    self.name           = name
-    self.move_generator = move_generator
+  def __init__(self, **kwargs):
+    try:
+      self.name = kwargs['name']
+    except KeyError:
+      raise MissingAttribute(self.__class__.__name__, 'name')
+
+    self.router = kwargs.get('router', None)
 
   def get_move(self, reporter):
-    self.move_generator(reporter)
+    self.router(reporter)
