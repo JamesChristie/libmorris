@@ -3,9 +3,9 @@ import itertools
 from libmorris.errors import InvalidMove, MoveOutOfBounds
 
 def tuple_list():
-  return sorted(list(
+  return list(
     itertools.product(range(1, 4), repeat=2)
-  ))
+  )
 
 class Board:
   def __init__(self):

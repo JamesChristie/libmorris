@@ -2,7 +2,6 @@ from uuid import uuid4
 
 from libmorris.player import Player
 from libmorris.game   import Game
-from libmorris.errors import GameExistsError
 
 class Memory:
   def __init__(self):
