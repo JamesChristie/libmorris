@@ -1,14 +1,11 @@
 PYTHON=`which python`
 NAME=`python setup.py --name`
 
-all: init init-dev dev source
+all: init dev source
 
 dev: check test
 
 init:
-	pip install -r -requirements.txt
-
-init-dev:
 	pip install -r requirements-dev.txt
 
 test:
