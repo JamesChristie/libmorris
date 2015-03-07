@@ -9,8 +9,6 @@ class Board:
       x_pos = position[0]
       y_pos = position[1]
       self.game_space[x_pos][y_pos] = player
-    else:
-      pass
 
   def owner_of(self, position):
     return self.game_space[position[0]][position[1]]

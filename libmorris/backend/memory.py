@@ -10,7 +10,7 @@ class Memory:
 
   def register(self, **kwargs):
     new_game = self.build_game(**kwargs)
-    new_id   = uuid4()
+    new_id   = str(uuid4())
     self.game_registry[new_id] = new_game
     return new_id
 

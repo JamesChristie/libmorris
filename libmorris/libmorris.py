@@ -1,7 +1,7 @@
 from libmorris.backend.memory import Memory
 
-from libmorris.game    import Game
-from libmorris.errors  import GameExistsError
+from libmorris.game     import Game
+from libmorris.reporter import Reporter
 
 persistence = Memory()
 
@@ -16,3 +16,6 @@ def game_exists(game_id):
 
 def find_game(game_id):
   return persistence.find(game_id)
+
+def build_reporter(game):
+  return Reporter(game)
