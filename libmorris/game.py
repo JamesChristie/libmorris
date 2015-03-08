@@ -11,3 +11,6 @@ class Game:
     self.player_one = kwargs['player_one']
     self.player_two = kwargs['player_two']
     self.board      = Board()
+
+  def get_space(self):
+    return self.board.game_space

@@ -22,10 +22,14 @@ class WinDetector:
 
   def winning_player(self):
     owners = traversal.get_owners(
-      self.eligible_sequences,
+      self.selected_victory,
       self.game_space
     )
-    return (owners[0] if owners else None)
+
+    if len(owners) == 1:
+      return list(owners)[0]
+    else:
+      return None
 
   def winning_positions(self):
     if self.game_is_won():

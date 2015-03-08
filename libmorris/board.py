@@ -1,10 +1,12 @@
 import itertools
 
+from libmorris import traversal
+
 from libmorris.errors import InvalidMove, MoveOutOfBounds
 
 def tuple_list():
   return list(
-    itertools.product(range(1, 4), repeat=2)
+    itertools.product(traversal.board_range, repeat=2)
   )
 
 class Board:
