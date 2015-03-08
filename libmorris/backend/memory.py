@@ -7,9 +7,9 @@ class Memory:
   def __init__(self):
     self.game_registry = {}
 
-  def register(self):
+  def register(self, **kwargs):
     new_id = str(uuid4())
-    self.game_registry[new_id] = Game()
+    self.game_registry[new_id] = Game(**kwargs)
     return new_id
 
   def find(self, game_id):

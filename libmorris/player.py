@@ -1,12 +1,17 @@
 from libmorris.ai.perfect import Perfect
 
+from libmorris.reporter import Reporter
+
 class Player:
-  def __init__(self, game=None, move_procedure=None):
-    self.game           = game
-    self.move_procedure = move_procedure
+  def __init__(self, game=None, hook=None):
+    self.game = game
+    self.hook = hook
 
   def get_move(self):
-    if self.move_procedure:
-      return self.move_procedure(self.game)
+    if self.hook:
+      return self.hook(self.get_reporter())
     else:
       return Perfect.get_perfect_move(self, self.game)
+
+  def get_reporter(self):
+    return Reporter(self.game)

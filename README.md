@@ -4,7 +4,7 @@ A Python implementation of a Tic-Tac-Toe game engine.
 ## Description
 The game engine implemented here provides tools for managing and running games of tic-tac-toe, while assuming nothing about a particular interface consuming it. The engine does not provide a loop, or any driver code; this allows for, potentially, both synchronous and asynchronous play. Registration of a game allows for optional control of one or both players by providing lambda functions that will be called to allow hooking into decisions making.
 
-An implementation of a minimax algorithm "perfect" AI player is also provided. Players that are not given a lambda hook will default to using this AI implementation.
+An implementation of a minimax algorithm "perfect" AI player is also provided. Players that are not given a lambda hook will default to using this AI implementation. **The current implementation of this AI is the near perfect opposite of performant.** Its runtime is a function of the inverse of the number of free spaces. On a 2.8Ghz i7, it can take the AI up to 20 seconds to decide what to do on a blank board. However, performance increases exponentially with each claimed space in the game.
 
 ## Installation / Setup
 The repository can be cloned locally by running:

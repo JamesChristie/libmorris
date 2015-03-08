@@ -15,7 +15,7 @@ class TestEmptyGame(unittest.TestCase):
       (1, 1): None, (2, 1): None, (3, 1): None
     }
 
-    self.expected_move = (2, 1)
+    self.expected_move = (1, 2)
 
   def test_get_next_move(self):
     self.assertEqual(

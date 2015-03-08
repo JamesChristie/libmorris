@@ -2,13 +2,14 @@ import unittest
 
 from uuid import uuid4
 
-from libmorris      import register_game
-from libmorris      import destroy_game
-from libmorris      import game_exists
-from libmorris      import libmorris
+from libmorris import register_game
+from libmorris import destroy_game
+from libmorris import game_exists
+from libmorris import libmorris
+from libmorris import get_game
+
 from libmorris.game import Game
 
-from libmorris.libmorris      import find_game
 from libmorris.backend.memory import Memory
 
 class TestGameDestructionForRegisteredGame(unittest.TestCase):
@@ -23,7 +24,7 @@ class TestGameDestructionForRegisteredGame(unittest.TestCase):
     self.assertFalse(game_exists(self.game_id))
 
   def test_find_game(self):
-    self.assertIsNone(find_game(self.game_id))
+    self.assertIsNone(get_game(self.game_id))
 
 class TestGameDestructionForUnregisteredGame(unittest.TestCase):
   def setUp(self):
@@ -37,4 +38,4 @@ class TestGameDestructionForUnregisteredGame(unittest.TestCase):
     self.assertFalse(game_exists(self.game_id))
 
   def test_deletion_of_non_existant_find_game(self):
-    self.assertIsNone(find_game(self.game_id))
+    self.assertIsNone(get_game(self.game_id))

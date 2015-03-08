@@ -11,9 +11,9 @@ def tuple_list():
   )
 
 class Game:
-  def __init__(self, procedure_one=None, procedure_two=None):
-    self.player_one = Player(game=self, move_procedure=procedure_one)
-    self.player_two = Player(game=self, move_procedure=procedure_two)
+  def __init__(self, hook_one=None, hook_two=None):
+    self.player_one = Player(game=self, hook=hook_one)
+    self.player_two = Player(game=self, hook=hook_two)
 
     self.last_player       = None
     self.current_player    = self.player_one

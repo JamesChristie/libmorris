@@ -1,12 +1,21 @@
 class LibmorrisException(Exception):
   pass
 
+class GameNotfound(LibmorrisException):
+  def __init__(self, game_id):
+    message = (
+      "No game could be found for the id: %s"
+    )
+    message = message % game_id
+    super(GameNotfound, self).__init__(message)
+
 class InvalidMove(LibmorrisException):
   def __init__(self, position):
     message = (
       "A move cannot be made to the position %d, %d "
       "because another player has occupied that space"
     )
+    message = message % position
     super(InvalidMove, self).__init__(message)
 
 class MoveOutOfBounds(LibmorrisException):
@@ -15,6 +24,7 @@ class MoveOutOfBounds(LibmorrisException):
       "A move cannot be made to the position %d, %d "
       "because it is out of bounds"
     )
+    message = message % position
     super(MoveOutOfBounds, self).__init__(message)
 
 class CannotMove(LibmorrisException):
