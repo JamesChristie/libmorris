@@ -105,6 +105,12 @@ InvalidMove
 
 This exception will be raised when the tuple provided references a space already owned by a player.
 
+```python
+CannotMove
+```
+
+This exception will be raised is a move is attempted outside of a player's allowed turn.
+
 ### Game Interaction
 
 Explanation coming soon! I still need to write the presenter object.....

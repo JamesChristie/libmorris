@@ -1,4 +1,4 @@
-from libmorris.ai.perfect import get_perfect_move
+from libmorris.ai.perfect import Perfect
 
 class Player:
   def __init__(self, game=None, move_procedure=None):
@@ -9,4 +9,4 @@ class Player:
     if self.move_procedure:
       return self.move_procedure(self.game)
     else:
-      return get_perfect_move(self, self.game)
+      return Perfect.get_perfect_move(self, self.game)

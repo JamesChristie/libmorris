@@ -1,5 +1,6 @@
 from libmorris.errors import InvalidMove
 from libmorris.errors import MoveOutOfBounds
+from libmorris.errors import CannotMove
 
 class GameUpdater:
   @classmethod
@@ -16,11 +17,13 @@ class GameUpdater:
       self.game.update_current_player()
 
   def is_valid_move(self, player, position):
-    if not self.is_in_bounds(position):
+    if not self.player_can_move(player):
+      raise CannotMove(player)
+    elif not self.is_in_bounds(position):
       raise MoveOutOfBounds(position)
     elif self.is_position_taken(position):
       raise InvalidMove(position)
-    elif self.player_can_move(player):
+    else:
       return True
 
   def is_position_taken(self, position):

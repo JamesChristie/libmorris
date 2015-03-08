@@ -17,6 +17,14 @@ class MoveOutOfBounds(LibmorrisException):
     )
     super(MoveOutOfBounds, self).__init__(message)
 
+class CannotMove(LibmorrisException):
+  def __init__(self, player):
+    message = (
+      "A move cannot be made for the given player because "
+      "it is not their turn"
+    )
+    super(CannotMove, self).__init__(message)
+
 class AmbiguousVictory(LibmorrisException):
   def __init__(self):
     message = (

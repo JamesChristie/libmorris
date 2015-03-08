@@ -3,7 +3,7 @@ import unittest
 from libmorris.game   import Game
 from libmorris.player import Player
 
-from libmorris.ai.perfect import get_perfect_move
+from libmorris.ai.perfect import Perfect
 
 class TestEmptyGame(unittest.TestCase):
   def setUp(self):
@@ -15,11 +15,11 @@ class TestEmptyGame(unittest.TestCase):
       (1, 1): None, (2, 1): None, (3, 1): None
     }
 
-    self.expected_move = (1, 1)
+    self.expected_move = (2, 1)
 
   def test_get_next_move(self):
     self.assertEqual(
-      get_perfect_move(
+      Perfect.get_perfect_move(
         self.game.player_one,
         self.game
       ),
@@ -40,7 +40,7 @@ class TestNearWin(unittest.TestCase):
 
   def test_get_next_move(self):
     self.assertEqual(
-      get_perfect_move(
+      Perfect.get_perfect_move(
         self.game.player_one,
         self.game
       ),
@@ -57,11 +57,11 @@ class TestNearLoss(unittest.TestCase):
       (1, 1): self.game.player_one, (2, 1): self.game.player_one, (3, 1): self.game.player_two
     }
 
-    self.expected_move = (1, 1)
+    self.expected_move = (3, 3)
 
   def test_get_next_move(self):
     self.assertEqual(
-      get_perfect_move(
+      Perfect.get_perfect_move(
         self.game.player_one,
         self.game
       ),

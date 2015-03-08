@@ -72,8 +72,10 @@ class Game:
 
   def get_copy(self):
     new_game = Game()
-    new_game.player_one = self.player_one
-    new_game.player_two = self.player_two
-    new_game.game_space = self.game_space.copy()
+
+    new_game.player_one     = self.player_one
+    new_game.player_two     = self.player_two
+    new_game.current_player = self.current_player
+    new_game.game_space     = self.game_space.copy()
 
     return new_game

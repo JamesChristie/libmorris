@@ -5,6 +5,7 @@ from libmorris.game_updater import GameUpdater
 
 from libmorris.errors import InvalidMove
 from libmorris.errors import MoveOutOfBounds
+from libmorris.errors import CannotMove
 
 class TestGameUpdatingForValidMove(unittest.TestCase):
   def setUp(self):
@@ -198,3 +199,15 @@ class TestGameUpdatingForOwnedMove(unittest.TestCase):
       self.game.owner_of(self.position),
       self.game.player_two
     )
+
+class TestGameUpdatingForOutOfTurnMove(unittest.TestCase):
+  def setUp(self):
+    self.game     = Game()
+    self.player   = self.game.player_two
+    self.position = (1, 1)
+
+    self.game.current_player = self.game.player_one
+
+  def test_exception_raised(self):
+    with self.assertRaises(CannotMove):
+      GameUpdater.request_move(self.game, self.player, self.position)
