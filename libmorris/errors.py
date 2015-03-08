@@ -1,14 +1,6 @@
 class LibmorrisException(Exception):
   pass
 
-class GameNotfound(LibmorrisException):
-  def __init__(self, game_id):
-    message = (
-      "No game could be found for the id: %s"
-    )
-    message = message % game_id
-    super(GameNotfound, self).__init__(message)
-
 class InvalidMove(LibmorrisException):
   def __init__(self, position):
     message = (

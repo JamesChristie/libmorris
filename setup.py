@@ -15,13 +15,10 @@ setup(
 
   packages = find_packages(),
   include_package_data = True,
-  package_data = {
-    '': ['*.txt', '*.rst'],
-    'libmorris': ['credentials', 'client'],
-  },
+  package_data = { 'libmorris': ['libmorris/*'] },
   exclude_package_data = { '': ['README.txt'] },
   
-  keywords='python rest netsuite erp',
+  keywords='python tic-tac-toe minimax',
   license='GPL',
   classifiers=['Development Status :: 5 - Production/Stable',
                'Natural Language :: English',

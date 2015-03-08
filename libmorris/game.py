@@ -63,7 +63,10 @@ class Game:
       self.current_player = None
 
   def get_next_player(self):
-    pass
+    if self.is_in_progress():
+      return self.opponent(self.current_player)
+    else:
+      return None
 
   def update_win_status(self):
     detector = WinDetector(self.game_space)
