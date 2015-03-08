@@ -3,7 +3,7 @@ from libmorris.win_detector import WinDetector
 class Reporter:
   def __init__(self, game):
     self.game          = game
-    self.win_detector  = WinDetector(self.game.get_space())
+    self.win_detector  = WinDetector(self.game.game_space)
     self.winning_moves = self.win_detector.winning_positions()
 
   def is_in_progress(self):
@@ -16,7 +16,7 @@ class Reporter:
     self.game.get_last_player()
 
   def next_player(self):
-    self.game.get_next_player()
+    self.game.opponent(self.last_player)
 
   def get_winner(self):
     return self.win_detector.winning_player()

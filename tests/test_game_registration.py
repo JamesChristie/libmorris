@@ -12,19 +12,7 @@ from libmorris.backend.memory import Memory
 
 class TestGameRegistration(unittest.TestCase):
   def setUp(self):
-    self.game_name  = 'Some Game'
-    self.name_one   = 'Red'
-    self.router_one = lambda x: x
-    self.name_two   = 'Blue'
-    self.router_two = lambda x: x
-
-    self.game_id = register_game(
-      game_name         = self.game_name,
-      player_one_name   = self.name_one,
-      player_one_router = self.router_one,
-      player_two_name   = self.name_two,
-      player_two_router = self.router_two
-    )
+    self.game_id = register_game()
 
 
   def tearDown(self):

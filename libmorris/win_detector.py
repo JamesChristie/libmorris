@@ -19,7 +19,7 @@ class WinDetector:
     self.game_space         = game_space
     self.eligible_sequences = sequencer.eligible_sequences(game_space)
     self.selected_victory   = []
-
+  
   def winning_player(self):
     owners = traversal.get_owners(
       self.selected_victory,

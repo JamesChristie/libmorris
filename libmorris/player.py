@@ -1,13 +1,12 @@
-from libmorris.errors import MissingAttribute
+from libmorris.ai.perfect import get_perfect_move
 
 class Player:
-  def __init__(self, **kwargs):
-    try:
-      self.name = kwargs['name']
-    except KeyError:
-      raise MissingAttribute(self.__class__.__name__, 'name')
+  def __init__(self, game=None, move_procedure=None):
+    self.game           = game
+    self.move_procedure = move_procedure
 
-    self.router = kwargs.get('router', None)
-
-  def get_move(self, reporter):
-    self.router(reporter)
+  def get_move(self):
+    if self.move_procedure:
+      return self.move_procedure(self.game)
+    else:
+      return get_perfect_move(self, self.game)

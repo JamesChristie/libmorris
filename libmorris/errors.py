@@ -1,11 +1,6 @@
 class LibmorrisException(Exception):
   pass
 
-class MissingAttribute(LibmorrisException):
-  def __init__(self, class_name, attribute):
-    message = "Cannot create %s without a %s" % class_name, attribute
-    super(MissingAttribute, self).__init__(message)
-
 class InvalidMove(LibmorrisException):
   def __init__(self, position):
     message = (

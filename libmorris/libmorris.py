@@ -5,8 +5,8 @@ from libmorris.reporter import Reporter
 
 persistence = Memory()
 
-def register_game(**kwargs):
-  return persistence.register(**kwargs)
+def register_game():
+  return persistence.register()
 
 def destroy_game(game_id):
   return persistence.destroy(game_id)

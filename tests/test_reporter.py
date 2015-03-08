@@ -6,13 +6,12 @@ from libmorris.reporter import Reporter
 
 class TestReporterForEmptyGame(unittest.TestCase):
   def setUp(self):
-    self.player_one = Player(name="Shirts")
-    self.player_two = Player(name="Even Bigger Shirts")
-    self.game = Game(
-      name       = "Some Game",
-      player_one = self.player_one,
-      player_two = self.player_two
-    )
+    self.game       = Game()
+    self.player_one = Player()
+    self.player_two = Player()
+
+    self.game.player_one = self.player_one
+    self.game.player_two = self.player_two
 
     self.reporter = Reporter(self.game)
 
@@ -27,15 +26,14 @@ class TestReporterForEmptyGame(unittest.TestCase):
 
 class TestReporterForInProgressGame(unittest.TestCase):
   def setUp(self):
-    self.player_one = Player(name="Shirts")
-    self.player_two = Player(name="Even Bigger Shirts")
-    self.game = Game(
-      name       = "Some Game",
-      player_one = self.player_one,
-      player_two = self.player_two
-    )
+    self.game       = Game()
+    self.player_one = Player()
+    self.player_two = Player()
 
-    self.game.board.game_space = {
+    self.game.player_one = self.player_one
+    self.game.player_two = self.player_two
+
+    self.game.game_space = {
       (1, 3): self.player_one, (2, 3): self.player_one, (3, 3): None,
       (1, 2): self.player_two, (2, 2): self.player_one, (3, 2): self.player_one,
       (1, 1): self.player_one, (2, 1): self.player_two, (3, 1): self.player_two
@@ -54,15 +52,14 @@ class TestReporterForInProgressGame(unittest.TestCase):
 
 class TestReporterForFinishedGame(unittest.TestCase):
   def setUp(self):
-    self.player_one = Player(name="Shirts")
-    self.player_two = Player(name="Even Bigger Shirts")
-    self.game = Game(
-      name       = "Some Game",
-      player_one = self.player_one,
-      player_two = self.player_two
-    )
+    self.game       = Game()
+    self.player_one = Player()
+    self.player_two = Player()
 
-    self.game.board.game_space = {
+    self.game.player_one = self.player_one
+    self.game.player_two = self.player_two
+
+    self.game.game_space = {
       (1, 3): self.player_one, (2, 3): self.player_one, (3, 3): self.player_one,
       (1, 2): self.player_two, (2, 2): self.player_one, (3, 2): self.player_one,
       (1, 1): self.player_one, (2, 1): self.player_two, (3, 1): self.player_two
