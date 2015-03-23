@@ -20,7 +20,10 @@ class TestReporterForEmptyGame(unittest.TestCase):
     self.assertTrue(self.reporter.is_in_progress())
 
   def test_is_over(self):
-    self.assertFalse(self.reporter.is_over())
+    self.assertEqual(self.reporter.is_over(), False)
+
+  def test_is_tie(self):
+    self.assertEqual(self.reporter.is_tie(), False)
 
   def test_last_player(self):
     self.assertIsNone(self.reporter.last_player())
@@ -76,7 +79,10 @@ class TestReporterForInProgressGame(unittest.TestCase):
     self.assertTrue(self.reporter.is_in_progress())
 
   def test_is_over(self):
-    self.assertFalse(self.reporter.is_over())
+    self.assertEqual(self.reporter.is_over(), False)
+
+  def test_is_tie(self):
+    self.assertEqual(self.reporter.is_tie(), False)
 
   def test_last_player(self):
     self.assertEqual(self.reporter.last_player(), 1)
@@ -132,7 +138,10 @@ class TestReporterForFinishedGame(unittest.TestCase):
     self.assertFalse(self.reporter.is_in_progress())
 
   def test_is_over(self):
-    self.assertTrue(self.reporter.is_over())
+    self.assertEqual(self.reporter.is_over(), True)
+
+  def test_is_tie(self):
+    self.assertEqual(self.reporter.is_tie(), False)
 
   def test_last_player(self):
     self.assertEqual(self.reporter.last_player(), 2)

@@ -25,10 +25,13 @@ class Game:
     )
 
   def is_over(self):
-    return self.winning_positions and self.winner
+    return self.winner_present() or (not self.get_free_positions())
 
   def is_in_progress(self):
     return not self.is_over()
+
+  def winner_present(self):
+    return self.winner != None
 
   def is_win_for(self, player):
     return player == self.winner
