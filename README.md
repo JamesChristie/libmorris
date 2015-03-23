@@ -164,6 +164,7 @@ report.current_player() # => 2
 report.next_player()    # => None
 report.winner()         # => 2
 report.loser()          # => 1
+report.played_moves()   # => 4
 ```
 
 The `Reporter` class also provides inspection of the current game state. You can obtain both a list of tuples representing the currently free positions as well as a dict representation of the entire play space:

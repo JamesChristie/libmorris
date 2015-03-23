@@ -15,6 +15,7 @@ class GameUpdater:
       self.game.set_owner_of(position, player)
       self.game.update_win_status()
       self.game.update_current_player()
+      self.game.played_moves += 1
 
   def is_valid_move(self, player, position):
     if not self.player_can_move(player):

@@ -18,3 +18,6 @@ class TestInitialGame(unittest.TestCase):
     self.assertTrue(
       all(self.game_space[position] == None for position in tuple_list())
     )
+
+  def test_played_moves(self):
+    self.assertEqual(self.game.played_moves, 0)

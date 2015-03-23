@@ -46,6 +46,10 @@ class TestGameUpdatingForValidMove(unittest.TestCase):
       self.player
     )
 
+  def test_played_moves(self):
+    GameUpdater.request_move(self.game, self.player, self.position)
+    self.assertEqual(self.game.played_moves, 1)
+
 class TestGameUpdatingForWinningMove(unittest.TestCase):
   def setUp(self):
     self.game     = Game()

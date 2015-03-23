@@ -40,6 +40,9 @@ class TestReporterForEmptyGame(unittest.TestCase):
   def test_loser(self):
     self.assertIsNone(self.reporter.loser())
 
+  def test_played_moves(self):
+    self.assertEqual(self.reporter.played_moves(), 0)
+
   def test_get_current_board(self):
     self.assertEqual(
       self.reporter.get_current_board(),
@@ -58,6 +61,7 @@ class TestReporterForInProgressGame(unittest.TestCase):
     self.player_one = self.game.player_one
     self.player_two = self.game.player_two
 
+    self.game.played_moves   = 8
     self.game.last_player    = self.player_one
     self.game.current_player = self.player_two
 
@@ -99,6 +103,9 @@ class TestReporterForInProgressGame(unittest.TestCase):
   def test_loser(self):
     self.assertIsNone(self.reporter.loser())
 
+  def test_played_moves(self):
+    self.assertEqual(self.reporter.played_moves(), 8)
+
   def test_get_current_board(self):
     self.assertEqual(
       self.reporter.get_current_board(),
@@ -117,6 +124,7 @@ class TestReporterForFinishedGame(unittest.TestCase):
     self.player_one = self.game.player_one
     self.player_two = self.game.player_two
 
+    self.game.played_moves   = 9
     self.game.last_player    = self.player_two
     self.game.current_player = self.player_one
 
@@ -157,6 +165,9 @@ class TestReporterForFinishedGame(unittest.TestCase):
 
   def test_loser(self):
     self.assertEqual(self.reporter.loser(), 2)
+
+  def test_played_moves(self):
+    self.assertEqual(self.reporter.played_moves(), 9)
 
   def test_get_current_board(self):
     self.assertEqual(

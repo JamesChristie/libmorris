@@ -15,6 +15,7 @@ class Game:
     self.player_one = Player(game=self, hook=hook_one)
     self.player_two = Player(game=self, hook=hook_two)
 
+    self.played_moves      = 0
     self.last_player       = None
     self.current_player    = self.player_one
     self.winning_positions = None

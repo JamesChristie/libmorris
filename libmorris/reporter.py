@@ -45,6 +45,10 @@ class Reporter:
     player = self.game.opponent(self.game.winner)
     return self.representation_for(player)
 
+  def played_moves(self):
+    """Return an int representing the number of played moves in total."""
+    return self.game.played_moves
+
   def get_current_board(self):
     """Return a dict representing the current game play space.
 
