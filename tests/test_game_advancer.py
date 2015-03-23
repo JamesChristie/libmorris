@@ -28,3 +28,16 @@ class TestGameAdvancerForAIPlayer(unittest.TestCase):
       self.game.owner_of(self.position),
       self.game.player_one
     )
+
+class TestGameAdvancerForGivenPosition(unittest.TestCase):
+  def setUp(self):
+    self.position = (2, 3)
+    self.game     = Game()
+
+    GameAdvancer.resolve_next_turn(self.game, self.position)
+
+  def test_updated_game(self):
+    self.assertEqual(
+      self.game.owner_of(self.position),
+      self.game.player_one
+    )

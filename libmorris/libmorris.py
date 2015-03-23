@@ -15,14 +15,14 @@ def register_game(**kwargs):
   """
   return persistence.register(**kwargs)
 
-def advance_game(game_id):
+def advance_game(game_id, position=None):
   """Request a game, found by the given id, advance a single turn.
   
   Positional Arguments:
   game_id -- A str representing a game id
   """
   game = persistence.find(game_id)
-  GameAdvancer.resolve_next_turn(game)
+  GameAdvancer.resolve_next_turn(game, position=position)
 
 def destroy_game(game_id):
   """Request a game, found by the given id, be deleted from the registry.
